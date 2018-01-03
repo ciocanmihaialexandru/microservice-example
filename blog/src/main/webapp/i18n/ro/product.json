@@ -1,0 +1,27 @@
+{
+    "blogApp": {
+        "product" : {
+            "home": {
+                "title": "Products",
+                "createLabel": "Creeare o nouă entitate Product",
+                "createOrEditLabel": "Creeare sau editare Product",
+                "search": "Căutare după Product"
+            },
+            "delete": {
+                "question": "Sunteți sigur că doriți să ștergeți Product {{ id }}?"
+            },
+            "detail": {
+                "title": "Product"
+            },
+            "name": "Name",
+            "price": "Price"
+        }
+    },
+    "storeApp": {
+        "product" : {
+            "created": "A fost creată o nouă entitate Product cu identificatorul {{ param }}",
+            "updated": "Entitatea Product cu identificatorul {{ param }} a fost actualizată",
+            "deleted": "Entitatea Product cu identificatorul {{ param }} a fost ștearsă"
+        }
+    }
+}
