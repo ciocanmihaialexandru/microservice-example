@@ -18,6 +18,9 @@
                 "employeeMySuffix": "Employee",
                 "jobMySuffix": "Job",
                 "jobHistoryMySuffix": "Job History",
+                "blog": "Blog",
+                "entry": "Entry",
+                "tag": "Tag",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

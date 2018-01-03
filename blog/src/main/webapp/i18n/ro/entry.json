@@ -1,0 +1,26 @@
+{
+    "blogApp": {
+        "entry" : {
+            "home": {
+                "title": "Entries",
+                "createLabel": "Creeare o nouă entitate Entry",
+                "createOrEditLabel": "Creeare sau editare Entry",
+                "search": "Căutare după Entry"
+            },
+            "created": "A fost creată o nouă entitate Entry cu identificatorul {{ param }}",
+            "updated": "Entry cu identificatorul {{ param }} a fost actualizată",
+            "deleted": "Entry cu identificatorul {{ param }} a fost ștearsă",
+            "delete": {
+                "question": "Sunteți sigur că doriți să ștergeți Entry {{ id }}?"
+            },
+            "detail": {
+                "title": "Entry"
+            },
+            "title": "Title",
+            "content": "Content",
+            "date": "Date",
+            "blog": "Blog",
+            "tag": "Tag"
+        }
+    }
+}

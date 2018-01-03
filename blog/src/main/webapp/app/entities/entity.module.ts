@@ -8,6 +8,9 @@ import { BlogTaskMySuffixModule } from './task-my-suffix/task-my-suffix.module';
 import { BlogEmployeeMySuffixModule } from './employee-my-suffix/employee-my-suffix.module';
 import { BlogJobMySuffixModule } from './job-my-suffix/job-my-suffix.module';
 import { BlogJobHistoryMySuffixModule } from './job-history-my-suffix/job-history-my-suffix.module';
+import { BlogBlogModule } from './blog/blog.module';
+import { BlogEntryModule } from './entry/entry.module';
+import { BlogTagModule } from './tag/tag.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -20,6 +23,9 @@ import { BlogJobHistoryMySuffixModule } from './job-history-my-suffix/job-histor
         BlogEmployeeMySuffixModule,
         BlogJobMySuffixModule,
         BlogJobHistoryMySuffixModule,
+        BlogBlogModule,
+        BlogEntryModule,
+        BlogTagModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],
