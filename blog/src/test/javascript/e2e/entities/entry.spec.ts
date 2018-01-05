@@ -1,13 +1,10 @@
 import { browser, element, by } from 'protractor';
 import { NavBarPage } from './../page-objects/jhi-page-objects';
-import * as path from 'path';
 describe('Entry e2e test', () => {
 
     let navBarPage: NavBarPage;
     let entryDialogPage: EntryDialogPage;
     let entryComponentsPage: EntryComponentsPage;
-    const fileToUpload = '../../../../main/webapp/content/images/logo-jhipster.png';
-    const absolutePath = path.resolve(__dirname, fileToUpload);
 
     beforeAll(() => {
         browser.get('/');

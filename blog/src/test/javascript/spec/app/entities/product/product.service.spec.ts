@@ -38,12 +38,6 @@ describe('Service Tests', () => {
         }));
 
         describe('Service methods', () => {
-            it('should call correct URL', () => {
-                service.find(123).subscribe(() => {});
-
-                expect(this.lastConnection).toBeDefined();
-                expect(this.lastConnection.request.url).toEqual('api/products/' + 123);
-            });
             it('should return Product', () => {
 
                 let entity: Product;
