@@ -36,7 +36,8 @@ eureka:
             version: ${info.project.version}
 ribbon:
     eureka:
-        enabled: true
+        enabled: false
+
 # See http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html
 zuul: # those values must be configured depending on the application specific needs
     host:
@@ -44,6 +45,15 @@ zuul: # those values must be configured depending on the application specific ne
         max-per-route-connections: 100
     semaphore:
         max-semaphores: 500
+    routes:
+        store:
+            path: /store/**
+            serviceId: store
+
+
+store:
+    ribbon:
+        listOfServers: horoscop.ournet.ro
 
 # See https://github.com/Netflix/Hystrix/wiki/Configuration
 hystrix:
@@ -52,7 +62,7 @@ hystrix:
             execution:
                 isolation:
                     thread:
-                        timeoutInMilliseconds: 10000
+                        timeoutInMilliseconds: 60000
 
 management:
     security:
