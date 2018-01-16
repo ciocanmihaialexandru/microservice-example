@@ -35,8 +35,10 @@ eureka:
             profile: ${spring.profiles.active}
             version: ${info.project.version}
 ribbon:
+    listOfServers: http://localhost:8080
     eureka:
-        enabled: true
+        enabled: false
+
 # See https://github.com/Netflix/Hystrix/wiki/Configuration
 #hystrix:
 #    command:

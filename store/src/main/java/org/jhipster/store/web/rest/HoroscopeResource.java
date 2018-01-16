@@ -11,13 +11,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.*;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * REST controller for managing Horoscope.
@@ -27,44 +27,32 @@ import org.springframework.web.client.RestTemplate;
 public class HoroscopeResource {
 
     private final Logger log = LoggerFactory.getLogger(ProductResource.class);
-    private final String horoscopeApiUrl = "https://horoscop.ournet.ro/api/reports.json?client=HoroscopeApp";
+    private final String ipServiceUrl = "http://api.ipify.org?format=json";
 
-    @Bean
-    @LoadBalanced
-    RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
+    @GetMapping(value = "/horoscope", produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> horoscope() throws JSONException {
 
-    @Autowired
-    RestTemplate restTemplate;
+        RestTemplate restTemplate = new RestTemplate();
 
-    public HoroscopeResource() {}
-
-
-    @PostMapping(value = "/horoscope", produces = "application/json")
-    @Timed
-    public ResponseEntity<Object> horoscope(@RequestBody Object requestBody) throws JSONException {
-
-        JSONObject response = new JSONObject();
-        JSONObject horoscopeData;
+        String response;
+        Map<String, String> ipData = new HashMap<>();
 
         try {
 
-            log.debug("Received request with body: " + requestBody);
-            horoscopeData = restTemplate.getForObject(horoscopeApiUrl, JSONObject.class);
-            log.debug(horoscopeData.toString());
+            ipData = restTemplate.getForObject(ipServiceUrl, HashMap.class);
+            log.debug("Ip received:" + ipData.toString());
+            response =  ipData.get("ip");
 
-            return new ResponseEntity<Object>(response, HttpStatus.OK);
+            return new ResponseEntity<String>(response, HttpStatus.OK);
+
 
         } catch (Exception e) {
 
-            response.put("exception", true);
-            response.put("message", e.getMessage());
+            response = "exception " + e.getMessage();
 
-            return new ResponseEntity<Object>(response, HttpStatus.OK);
+            return new ResponseEntity<String>(response, HttpStatus.OK);
 
         }
     }
-
 
 }
